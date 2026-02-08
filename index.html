@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi pinsheshaa 💘</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: pink;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Comic Sans MS', cursive;
+      overflow: hidden;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      z-index: 2;
+    }
+
+    h1 {
+      color: #ff2f92;
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px;
+      transition: all 0.2s ease;
+    }
+
+    #si {
+      background: #ff2f92;
+      color: white;
+    }
+
+    #no {
+      background: #aaa;
+      color: white;
+    }
+
+    .heart {
+      position: absolute;
+      color: red;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>mi pinsheshaa peshoshaa 🥹💘❤️‍🩹</h1>
+    <p>ya elesh mi novia yyy nomás quiero decirlo bien bonito…</p>
+    <p><strong>ya elesh mi pinsheshaa 💖</strong></p>
+    <p>yy voy a cuidarte, quererte y hacerte reír siempre 🥺</p>
+
+    <button id="si" onclick="aceptar()">sii 💘</button>
+    <button id="no" onclick="achicar()">no 😳</button>
+  </div>
+
+  <script>
+    let tamaño = 1;
+
+    function achicar() {
+      tamaño -= 0.15;
+      if (tamaño <= 0) {
+        document.getElementById("no").style.display = "none";
+      } else {
+        document.getElementById("no").style.transform = `scale(${tamaño})`;
+      }
+    }
+
+    function aceptar() {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          flex-direction:column;
+          background:pink;
+          font-family:'Comic Sans MS', cursive;
+          text-align:center;">
+          <h1 style="color:#ff2f92;">TE AMOOOOO 🥹💘❤️‍🩹</h1>
+          <p>oficialmente mi pinsheshaa para siempre 😮‍💨💖</p>
+        </div>
+      `;
+    }
+
+    function crearCorazon() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "💘";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+      heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(crearCorazon, 300);
+  </script>
+
+</body>
+</html>
